@@ -21,6 +21,16 @@ This is a port of [duggan's](https://github.com/duggan/humanhash-ruby) ruby Huma
     icr(0.27.0)> h.digest
     => "6ffb57d425e64d3993b381104e7bdb99"
 
+## Installation
+
+Add this to your application's shard.yml:
+
+    dependencies:
+      humanhash:
+        github: kingsley/humanhash
+
+
+
 ## Caveats
 
 Don't store the humanhash output, as its statistical uniqueness is only
