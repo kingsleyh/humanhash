@@ -1,5 +1,7 @@
 # HumanHash
 
+[![Build Status](https://travis-ci.org/kingsleyh/humanhash.svg?branch=master)](https://travis-ci.org/kingsleyh/humanhash)
+
 HumanHash provides human-readable representations of digests.
 
 This is a port of [duggan's](https://github.com/duggan/humanhash-ruby) ruby HumanHash implementation. Which is in turn a port of [Jacon Carlson's](https://github.com/jacobwcarlson/humanhash-ruby) ruby project which was originally based on [Zachary Voase's Python implementation](https://github.com/zacharyvoase/humanhash). So I can hardly take credit for this library as the work all belongs to those other great people and this is simply a port to the Crystal language.
