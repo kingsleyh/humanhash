@@ -4,7 +4,20 @@ HumanHash provides human-readable representations of digests.
 
 This is a port of [duggan's](https://github.com/duggan/humanhash-ruby) ruby HumanHash implementation. Which is in turn a port of [Jacon Carlson's](https://github.com/jacobwcarlson/humanhash-ruby) ruby project which was originally based on [Zachary Voase's Python implementation](https://github.com/zacharyvoase/humanhash). So I can hardly take credit for this library as the work all belongs to those other great people and this is simply a port to the Crystal language.
 
-![Terminal Example](.README/h.gif)
+## Examples
+
+    icr(0.27.0)> require "./humanhash"
+    icr(0.27.0)> digest = "535061bddb0549f691c8b9c012a55ee2"
+    icr(0.27.0)> HumanHash.humanize(digest)
+    => "alpha-twenty-mockingbird-twelve"
+    icr(0.27.0)>
+    icr(0.27.0)> h = HumanHash.uuid
+    icr(0.27.0)> h.human
+    => "berlin-avocado-may-nebraska"
+    icr(0.27.0)> h.uuid
+    => "f9c25578-55b8-46a8-bed5-40994056d10e"
+    icr(0.27.0)> h.digest
+    => "6ffb57d425e64d3993b381104e7bdb99"
 
 ## Caveats
 
