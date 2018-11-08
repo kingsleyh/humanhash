@@ -27,7 +27,7 @@ Add this to your application's shard.yml:
 
     dependencies:
       humanhash:
-        github: kingsley/humanhash
+        github: kingsleyh/humanhash
 
 
 
