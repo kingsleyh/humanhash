@@ -39,11 +39,11 @@ module HumanHash
       return bytes unless target < len
 
       segment_size = (len / target) + 1
-      bytes.each_slice(segment_size).map { |x| x.reduce { |s, b| s ^ b } }
+      bytes.each_slice(segment_size.to_i).map { |x| x.reduce { |s, b| s ^ b } }
     end
   end
 
-  def self.humanize(hexdigest, words : Int32 = Default_words, separator : String = Default_separator, word_list : Array(String) = Default_word_list)
+  def self.humanize(hexdigest, words : Int32 = Default_words, separator : String = Default_separator, word_list : Array(String) = Default_word_list) : String
     h = HumanHasher.new(words, separator, word_list)
     h.humanize(hexdigest)
   end
