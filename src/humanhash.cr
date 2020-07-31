@@ -9,22 +9,21 @@ module HumanHash
     end
   end
 
-  Default_words     = 4
-  Default_separator = "-"
-  Default_word_list = DEFAULT_WORDLIST
+  DEFAULT_WORDS     = 4
+  DEFAULT_SEPARATOR = '-'
 
   class HumanHasher
     getter words : Int32
-    getter separator : String
-    getter word_list : Array(String)
+    getter separator : Char | String
+    getter word_list : Array(Tuple(String, String))
 
-    def initialize(@words : Int32 = Default_words, @separator : String = Default_separator, @word_list : Array(String) = Default_word_list)
+    def initialize(@words : Int32 = DEFAULT_WORDS, @separator : (Char | String) = DEFAULT_SEPARATOR, @word_list : Array(Tuple(String, String)) = DEFAULT_WORDLIST)
     end
 
     def humanize(hexdigest)
       raise "You must provide a valid SHA256 hex digest" unless hexdigest.hexbytes?
       bytes = hexdigest.hexbytes
-      compress(bytes, words).to_a.map { |x| word_list[x] }.join(separator)
+      compress(bytes, words).to_a.map_with_index { |x, i| word_list[x][i.even? ? 0 : 1] }.join(separator)
     end
 
     def uuid
@@ -43,12 +42,12 @@ module HumanHash
     end
   end
 
-  def self.humanize(hexdigest, words : Int32 = Default_words, separator : String = Default_separator, word_list : Array(String) = Default_word_list) : String
+  def self.humanize(hexdigest, words : Int32 = DEFAULT_WORDS, separator : (Char | String) = DEFAULT_SEPARATOR, word_list : Array(Tuple(String, String)) = DEFAULT_WORDLIST) : String
     h = HumanHasher.new(words, separator, word_list)
     h.humanize(hexdigest)
   end
 
-  def self.uuid(words : Int32 = Default_words, separator : String = Default_separator, word_list : Array(String) = Default_word_list)
+  def self.uuid(words : Int32 = DEFAULT_WORDS, separator : (Char | String) = DEFAULT_SEPARATOR, word_list : Array(Tuple(String, String)) = DEFAULT_WORDLIST)
     h = HumanHasher.new(words, separator, word_list)
     h.uuid
   end
