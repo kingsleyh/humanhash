@@ -4,6 +4,6 @@ version: 0.1.2
 authors:
   - Kingsley Hendrickse <kingsley.hendrickse@gmail.com>
 
-crystal: 0.31.1
+crystal: 0.35.1
 
 license: MIT

@@ -12,11 +12,11 @@ describe HumanHash do
 
   describe "#humanize" do
     it "should accept a hex digest and return a HumanHash" do
-      HumanHash.humanize(hex_digest).should eq("alpha-twenty-mockingbird-twelve")
+      HumanHash.humanize(hex_digest).should eq("adrift-torpedo-peachy-tomorrow")
     end
 
     it "should accept a separator" do
-      HumanHash.humanize(hex_digest, separator: "_").should eq("alpha_twenty_mockingbird_twelve")
+      HumanHash.humanize(hex_digest, separator: "_").should eq("adrift_torpedo_peachy_tomorrow")
     end
   end
 end
@@ -25,8 +25,8 @@ describe "HumanHash::HumanHasher" do
   hex_digest = "535061bddb0549f691c8b9c012a55ee2"
 
   it "should accept a wordlist" do
-    word_list = (0..300).map { |v| "a#{v}" }
-    HumanHash::HumanHasher.new(word_list: word_list).humanize(hex_digest).should eq("a4-a227-a144-a226")
+    word_list = (0..300).map { |v| {"a#{v}", "b#{v}"} }
+    HumanHash::HumanHasher.new(word_list: word_list).humanize(hex_digest).should eq("a4-b227-a144-b226")
   end
 
   describe "#uuid" do
@@ -42,11 +42,11 @@ describe "HumanHash::HumanHasher" do
 
   describe "#humanize" do
     it "should accept a hex digest and return a HumanHash" do
-      HumanHash::HumanHasher.new.humanize(hex_digest).should eq("alpha-twenty-mockingbird-twelve")
+      HumanHash::HumanHasher.new.humanize(hex_digest).should eq("adrift-torpedo-peachy-tomorrow")
     end
 
     it "should accept a separator" do
-      HumanHash::HumanHasher.new(separator: "_").humanize(hex_digest).should eq("alpha_twenty_mockingbird_twelve")
+      HumanHash::HumanHasher.new(separator: "_").humanize(hex_digest).should eq("adrift_torpedo_peachy_tomorrow")
     end
   end
 end
